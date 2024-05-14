@@ -1,0 +1,11 @@
+.hero {
+    background: radial-gradient(50% 50% at 50% 52.6%, #2f245e 0%, rgb(0, 1, 3) 100%);
+}
+
+.sub-heading {
+    color: #B8B7BD;
+}
+
+.start-btn {
+    background-color: #9D51FF
+}

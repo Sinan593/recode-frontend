@@ -6,6 +6,7 @@ import axios from 'axios';
 export default function CodeConvertor() {
     const [legacyCode, setLegacyCode] = useState('');
     const [selectedConvertLanguage, setSelectedConvertLanguage] = useState('')
+    const [selectedLegacyLanguage, setSelectedLegacyLanguage] = useState('')
     const [convertedCode, setConvertedCode] = useState('');
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
@@ -60,53 +61,56 @@ export default function CodeConvertor() {
     return (
         <>
             <Navbar />
-            <div className="p-24 flex flex-row">
+            <h1 className='text-center font-medium text-3xl pt-8'>Code Generator</h1>
+
+            <div className="p-24 pt-8 flex flex-row">
                 <div className="left basis-1/2 pr-20">
-                    <label htmlFor="legacy-code" className="block mb-2 text-sm font-medium text-black dark:text-black">
+                    <label htmlFor="legacy-code" className="block mb-2 text-xl font-medium text-black dark:text-black">
                         Legacy code:
                     </label>
                     <textarea
                         id="legacy-code"
-                        rows="25"
-                        className="block p-2.5 w-full text-sm text-gray-900
+                        rows="18"
+                        className="block p-2.5 w-full text-sm text-white
                         bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500
-                        focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
-                        dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
-                        dark:focus:border-blue-500"
+                        focus:border-blue-500 dark:bg-gray-500 dark:border-gray-600 
+                        dark:placeholder-white  dark:focus:ring-blue-500
+                        dark:focus:border-blue-500 resize-none"
                         placeholder="Enter your Legacy code here..."
                         value={legacyCode}
                         onChange={handleLegacyCodeChange}
                     ></textarea>
                     {/* <Dropdown label={"Legacy code"} options={['COBOL', 'Delphi', 'VB']} /> */}
 
-                    <select defaultValue={".NET"} onChange={handleSelectedLegacyLanguage}>
+                    <select className='mt-4 p-2 rounded bg-blue-400 text-white' style={{ display: 'flex', justifyContent: 'flex-end' }} defaultValue={".NET"} onChange={handleSelectedLegacyLanguage}>
                         <option value="COBOL">COBOL</option>
                         <option value="Delphi">Delphi</option>
-                        <option value=".NET">.NET</option>
+                        <option value=".NET">Visual Basic</option>
                     </select>
                 </div>
 
                 <div className="right basis-1/2 pl-20">
-                    <label htmlFor="converted-code" className="block mb-2 text-sm font-medium text-black dark:text-black">
+                    <label htmlFor="converted-code" className="block mb-2 text-xl font-medium text-black dark:text-black">
                         Converted Code:
                     </label>
                     <textarea
                         id="converted-code"
-                        rows="25"
-                        className="block p-2.5 w-full text-sm text-gray-900
+                        rows="18"
+                        className="block p-2.5 w-full text-sm text-white
                         bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500
-                        focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
-                        dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
-                        dark:focus:border-blue-500"
+                        focus:border-blue-500 dark:bg-gray-500 dark:border-gray-600 
+                        dark:placeholder-white dark:text-white dark:focus:ring-blue-500
+                        dark:focus:border-blue-500 resize-none" disabled
                         value={convertedCode}
                     ></textarea>
                     {/* <Dropdown label={"Code to convert"} options={['Python', 'C', 'Java']} /> */}
-
-                    <select defaultValue={"Python"} onChange={handleSelectedConvertLanguage}>
-                        <option value="Python">Python</option>
-                        <option value="C">C</option>
-                        <option value="Java">Java</option>
-                    </select>
+                    <div style={{ display: 'flex', justifyContent: 'flex-end' }} >
+                        <select className='mt-4 p-2 rounded bg-blue-400 text-white' defaultValue={"Python"} onChange={handleSelectedConvertLanguage}>
+                            <option value="Python">Python</option>
+                            <option value="C">C</option>
+                            <option value="Java">Java</option>
+                        </select>
+                    </div>
                 </div>
 
             </div>

@@ -3,7 +3,7 @@ import Hero from "./Hero";
 export default function Home() {
     return (
         <>
-            <Navbar />
+            <Navbar showButton={true} />
             <Hero />
         </>
     )
